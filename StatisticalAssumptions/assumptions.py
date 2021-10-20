@@ -1,5 +1,6 @@
 ## Parametric assumptions
 ## https://www.pythonfordatascience.org/parametric-assumptions-python/
+## https://machinelearningmastery.com/a-gentle-introduction-to-normality-tests-in-python/ 
 
 """
 
@@ -44,17 +45,33 @@ This assumption can be checked with a formal TEST or GRAPHICALLY.
 
 #### 2A Normality Tests
 
-# Shapiro-Wilk (SW) Test
-# The null hypothesis is that the data is normal. 
-# Unfortunately in python, output is not labelled, but the output is (W test statistic, p-value).
+# Shapiro-Wilk Test - UNIVARIATE TEST / correlation 
+from numpy.random import seed
+from numpy.random import randn
+from scipy.stats import shapiro
+# seed the random number generator
+seed(1)
+# generate univariate observations
+data = 5 * randn(100) + 50
+# normality test
+stat, p = shapiro(data)
+print('Statistics=%.3f, p=%.3f' % (stat, p))
+# interpret
+alpha = 0.05
+if p > alpha:
+	print('Sample looks Gaussian (fail to reject H0)')
+else:
+	print('Sample does not look Gaussian (reject H0)')
+
+
+# Shapiro-Wilk (SW) Test for independent t-test framework 
 
 import pandas as pd
 import scipy.stats as stats
 
 df = pd.read_csv("https://raw.githubusercontent.com/researchpy/Data-sets/master/blood_pressure.csv")
 
-sampling_difference = df['bp_after'][df['sex'] == 'Male'].values - \
-                      df['bp_after'][df['sex'] == 'Female'].values
+sampling_difference = df['bp_after'][df['sex'] == 'Male'].values - df['bp_after'][df['sex'] == 'Female'].values
 
 stats.shapiro(sampling_difference)
 
@@ -73,7 +90,6 @@ model = smf.ols("bp_after ~ C(sex) + C(agegrp)", data= df).fit()
 stats.shapiro(model.resid)
 
 # Expected output from above: (0.9816310405731201, 0.10094476491212845)
-
 
 
 
@@ -111,6 +127,11 @@ stats.kstest(model.resid, 'norm')
 # Expected output: KstestResult(statistic=0.4502179708439199, pvalue=1.0174625716715393e-22)
 
 
+
+
+
+
+
 ### 2B Noramlity: Graphical tests 
 # Probability Plot
 
@@ -118,8 +139,23 @@ stats.kstest(model.resid, 'norm')
 # # The better the ordered data fits the theoretical distribution, the less deviation there will 
 # # be from the fit line that is in the middle of the graph.
 
-# Coming from mean comparison framework (independent sample t-test)
 
+# Simple univariate 
+# histogram plot
+from numpy.random import seed
+from numpy.random import randn
+from matplotlib import pyplot
+# seed the random number generator
+seed(1)
+# generate univariate observations
+data = 5 * randn(100) + 50
+# histogram plot
+pyplot.hist(data)
+pyplot.show()
+
+
+
+# Coming from mean comparison framework (independent sample t-test)
 import pandas as pd
 import scipy.stats as stats
 
@@ -163,6 +199,32 @@ plt.show()
 #Rely on the Central Limit Theorem if the sample size is large enough ()
 #Use a non-parametric statistical test
 #Transform the data
+
+
+
+# Quantile-Quantile Plot
+# The function takes the data sample and by default assumes we are comparing it 
+# to a Gaussian distribution. We can draw the standardized line by setting the ‘line‘ argument to ‘s‘.
+# QQ Plot
+from numpy.random import seed
+from numpy.random import randn
+from statsmodels.graphics.gofplots import qqplot
+from matplotlib import pyplot
+# seed the random number generator
+seed(1)
+# generate univariate observations
+data = 5 * randn(100) + 50
+# q-q plot
+qqplot(data, line='s')
+pyplot.show()
+
+
+
+
+
+
+
+
 
 
 

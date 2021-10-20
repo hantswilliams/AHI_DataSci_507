@@ -3,6 +3,10 @@
 # - Normal distribution of data
 # - Independence
 
+## Creating fake data
+hb <- rnorm(100, mean = 15, sd = 3)
+crp = rgamma(100, 2, 2)
+
 
 
 ### NORAMLITY 
