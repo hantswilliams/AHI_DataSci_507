@@ -88,12 +88,8 @@ spearmanOutput = pd.DataFrame({'Correlation': spearmancorrelation,
                                'PValue': spearmanp, 'CorrType' : 'Spearman',
                                'From' : 'SciPy'}, index=[0])
 
-corrOutput = pd.concat([pearonOutput, spearmanOutput])
-
-
 
 ## Example 2 - from PANDAS - PEARON and SPEARMAN CORRELATIONS
-# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html
 pdpearson = diabetes['time_in_hospital'].corr(diabetes['num_lab_procedures'], method='pearson')
 pearonOutputPD = pd.DataFrame({'Correlation': pdpearson, 
                                'PValue': 'Not provided', 'CorrType' : 'Pearson',
@@ -107,13 +103,48 @@ spearmanOutputPD = pd.DataFrame({'Correlation': pdspearman,
 
 
 
-
-corrOutput = pd.concat([corrOutput, pearonOutputPD, spearmanOutputPD])
-
+corrOutput = pd.concat([pearonOutput, spearmanOutput, pearonOutputPD, spearmanOutputPD])
 
 
 
 
+
+###### Example 2 
+## Corr question 2: 
+## Is there a correlation between the number of diagnoses and the 
+## number of total procedures (lab + unknown procedures)? 
+
+## Gut check 
+diabetes['number_diagnoses'].describe()
+diabetes['totalCountProcedures'].describe()
+
+
+diabetes['number_diagnoses'].value_counts()
+diabetes['totalCountProcedures'].value_counts()
+
+
+
+
+## Question 1 
+number_diagnoses = diabetes['number_diagnoses']
+totalCountProcedures = diabetes['totalCountProcedures'].array
+
+
+number_diagnoses_stat, number_diagnoses_p = shapiro(number_diagnoses)
+totalCountProcedures_stat, totalCountProcedures_p = shapiro(totalCountProcedures)
+
+# pyplot.hist(number_diagnoses).show()
+# pyplot.hist(totalCountProcedures).show()
+diabetes['number_diagnoses'].hist(bins=20)
+diabetes['totalCountProcedures'].hist(bins=20)
+
+
+stats.bartlett(timeinhospital, labprocedures) 
+stats.bartlett(diabetes['time_in_hospital'], diabetes['num_lab_procedures'] ) 
+
+
+pearsoncorrelation, pearsonp = pearsonr(number_diagnoses, totalCountProcedures)
+spearmancorrelation, spearmanp = spearmanr(number_diagnoses, totalCountProcedures)
 
 
 
