@@ -1,10 +1,25 @@
 ###### 1 SAMPLE T-TEST ######
+###### 1 SAMPLE T-TEST ######
+###### 1 SAMPLE T-TEST ######
+###### 1 SAMPLE T-TEST ######
+
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_1samp.html
 
 from scipy.stats import ttest_1samp
 ttest_1samp(dataarray, expectedmeanValue)
 
 
+
+
+
+
+
+
+
+
+###### 2 SAMPLE T-TESTS ######
+###### 2 SAMPLE T-TESTS ######
+###### 2 SAMPLE T-TESTS ######
 ###### 2 SAMPLE T-TESTS ######
 
 # Example data: 

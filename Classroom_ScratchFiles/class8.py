@@ -151,6 +151,19 @@ spearmancorrelation, spearmanp = spearmanr(number_diagnoses, totalCountProcedure
 
 
 
+##### T-test 
+from scipy.stats import ttest_ind
+
+
+# Is there a difference between sex (M:F) (IV) 
+# and the number of lab procedures (DV) performed? 
+
+# gender
+# totalCountProcedures
+
+Female = diabetes[diabetes['gender']=='Female']
+Male = diabetes[diabetes['gender']=='Male']
+ttest_ind(Female['totalCountProcedures'], Male['totalCountProcedures'])
 
 
 
