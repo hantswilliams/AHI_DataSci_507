@@ -221,9 +221,27 @@ pyplot.show()
 
 
 
-#
+# Kurtosis 
+
+## scipy 
+from scipy.stats import norm, kurtosis
+data = norm.rvs(size=1000, random_state=3)
+kurtosis(data)
+
+## pandas 
+pd.DataFrame(x).skew()
 
 
+# Skewness
+
+## scipy 
+from scipy.stats import skew
+skew([1, 2, 3, 4, 5])
+0.0
+
+## pandas 
+pd.DataFrame(x).kurtosis()
+ 
 
 
 

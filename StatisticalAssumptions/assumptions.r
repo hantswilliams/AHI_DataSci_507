@@ -43,6 +43,13 @@ qqline(hb)
 
 
 
+## Skewness and Kurtosis
+
+kurtosis(variableofinterest)                # apply the kurtosis function
+skewness(variableofinterest)                # apply the skewness function
+
+
+
 ### HOMOGENEITY OF VARIANCE
 ## The assumption of homogeneity of variance
 # The Levene test is used to test for homogeneity of variance. The null hypothesis states equality of variances. 
