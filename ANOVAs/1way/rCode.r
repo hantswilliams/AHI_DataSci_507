@@ -22,3 +22,5 @@ kruskal.test(DV ~ IVfactor, data = clean_nomiss)
 # Non-parametric / tuskey equivalent / 
 library(userfriendlyscience)
 games.howell(df$var1, df$var2) 
+
+## 
