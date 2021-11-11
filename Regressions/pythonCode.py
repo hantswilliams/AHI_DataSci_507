@@ -1,3 +1,5 @@
+## Simple example with SKLEARN -> https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#sphx-glr-auto-examples-linear-model-plot-ols-py 
+
 ### Example data: 
 
 from sklearn.datasets import load_boston
