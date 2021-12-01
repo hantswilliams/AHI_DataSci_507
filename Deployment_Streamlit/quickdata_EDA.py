@@ -31,9 +31,9 @@ import pandas as pd
 # inpatient = pandas_gbq.read_gbq(query2, project_id="moonlit-triumph-864", credentials=credentials)
 # outpatient = pandas_gbq.read_gbq(query3, project_id="moonlit-triumph-864", credentials=credentials)
 
-df_hospital = pd.read_csv("/Users/hantswilliams/Dropbox/Biovirtua/Python_Projects/ahi/AHI_STATS_507/Week13_Summary/hospital_info.csv")
-df_inpatient = pd.read_csv("/Users/hantswilliams/Dropbox/Biovirtua/Python_Projects/ahi/AHI_STATS_507/Week13_Summary/inpatient_2015.csv")
-df_outpatient = pd.read_csv("/Users/hantswilliams/Dropbox/Biovirtua/Python_Projects/ahi/AHI_STATS_507/Week13_Summary/outpatient_2015.csv")
+df_hospital = pd.read_csv("https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/hospital_info.csv")
+df_inpatient = pd.read_csv("https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/inpatient_2015.csv")
+df_outpatient = pd.read_csv("https://raw.githubusercontent.com/hantswilliams/AHI_DataSci_507/main/Deployment_Streamlit/outpatient_2015.csv")
 
 
 
