@@ -6,6 +6,7 @@
   - sudo apt-get update 
   - Test python is installed: e.g., type this in terminal: `python3` 
   - Install pip3 -> `sudo apt install python3-pip` 
+  - Update pip3 -> `sudo -H pip3 install --upgrade pip` 
   - Install streamlit -> `pip3 install streamlit`
   - Add to .bashrc file -> `nano ~/.bashrc` 
       - `export PATH="$HOME/.local/bin:$PATH"` to the very last line 
