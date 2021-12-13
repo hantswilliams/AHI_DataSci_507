@@ -36,7 +36,7 @@ def load_outpatient():
     return df_outpatient_2
 
 
-st.title('Medicare — Expenses - NY')
+st.title('Medicare — Expenses - NY / NY State')
 
 
 
