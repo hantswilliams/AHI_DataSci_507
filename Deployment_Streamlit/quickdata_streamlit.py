@@ -62,6 +62,11 @@ df_outpatient_2 = load_outpatient()
 st.header('Hospital Data Preview')
 st.dataframe(df_hospital_2)
 
+# Quickly creating a pivot table 
+st.subheader('Hospital Data Pivot Table')
+st.write(df_hospital_2.pivot_table(index=['state','city'],values=['timeliness_of_care_national_comparison'],aggfunc='mean'))
+
+
 
 hospitals_ny = df_hospital_2[df_hospital_2['state'] == 'NY']
 
