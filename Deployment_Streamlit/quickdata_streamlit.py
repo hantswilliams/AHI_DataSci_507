@@ -58,8 +58,9 @@ df_outpatient_2 = load_outpatient()
 
 
 
-
-
+# Preview the dataframes 
+st.header('Hospital Data Preview')
+st.dataframe(df_hospital_2)
 
 
 hospitals_ny = df_hospital_2[df_hospital_2['state'] == 'NY']
