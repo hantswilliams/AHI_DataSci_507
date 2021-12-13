@@ -65,7 +65,8 @@ st.dataframe(df_hospital_2)
 # Quickly creating a pivot table 
 st.subheader('Hospital Data Pivot Table')
 dataframe_pivot = df_hospital_2.pivot_table(index=['state','city'],values=['timeliness_of_care_national_comparison'],aggfunc='mean')
-st.table(dataframe_pivot)
+dataframe_pivot = pd.DataFrame(dataframe_pivot)
+st.dataframe(dataframe_pivot)
 
 
 
