@@ -64,8 +64,8 @@ st.dataframe(df_hospital_2)
 
 # Quickly creating a pivot table 
 st.subheader('Hospital Data Pivot Table')
-df_hospital_2_nonull_effectiveness = df_hospital_2[~df_hospital_2['effectiveness_of_care_national_comparison_footnote'].isnull()]
-st.dataframe(df_hospital_2_nonull_effectiveness)
+dataframe_pivot = df_hospital_2.pivot_table(index=['state','city'],values=['effectiveness_of_care_national_comparison_footnote'],aggfunc='mean')
+st.dataframe(dataframe_pivot)
 
 
 
